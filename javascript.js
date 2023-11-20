@@ -1,39 +1,45 @@
 /*javascript goes here*/
-
-const defaultColor=0;
-const defaultSize=0;
+let defaultColor=0;
+let defaultSize=0;
 const master=document.querySelector("#masterBox");
+master.classList.add('master');
+
+/*display square*/
+const display=document.createElement("div");
+display.classList.add("display");
+master.appendChild(display);
 
 /*squares*/
 const square=document.createElement("div");
 square.classList.add('square');
-square.textContent("child of Master");
-master.appendChild(square);
+display.appendChild(square);
 ///////////////////////////////make a shit ton of squares
 
 /*size Buttons*/
 const small=document.createElement('button');
-const medium=document.createElemet('button');
-const large=document.createElemtent('button');
+const medium=document.createElement('button');
+const large=document.createElement('button');
 small.classList.add('sizeButton');
 medium.classList.add('sizeButton');
 large.classList.add('sizeButton');
-small.addEventListener('click',small());
-medium.addEventListener('click',medium());
-large.addEventListener('click',large());
+small.addEventListener('click',toSmall);
+medium.addEventListener('click',toMedium);
+large.addEventListener('click',toLarge);
+/////////////////////////////append buttons to masterBox
 
 /*color Buttons*/
 const black=document.createElement('button');
 const psych=document.createElement('button');
 black.classList.add('colorButton');
 psych.classList.add('colorButton');
-black.addEventListener('click',black());
-psych.addEventListener('click',psych());
-function black(){
+black.addEventListener('click',toBlack);
+psych.addEventListener('click',toPsych);
+function toBlack(){
   defaultColor=1;
-}function psych(){
+}function toPsych(){
   defaultColor=2;
 }
+////////////////////////////append buttons to masterBox
 
 /*screen eraser*/
 function clearAll(){
@@ -49,13 +55,16 @@ function removeSizeClass(){
   square.classList.remove('small');
   square.classList.remove('medium');
   square.classList.remove('large');
-}function small(){
-  remove SizeClass();
+}
+function toSmall(){
+  removeSizeClass();
   square.classList.add('small');
-}function medium(){
+}
+function toMedium(){
   removeSizeClass();
   square.classList.add('medium');
-}function large(){
+}
+function toLarge(){
   removeSizeClass();
   square.classList.add('large');
 }

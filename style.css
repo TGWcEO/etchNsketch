@@ -1,4 +1,50 @@
 /*style goes here*/
+#masterBox{
+  border:2px solid black;
+  border-radius: 10px;
+  height:700px;
+  width:700px;
+  background-color:red;
+  display:flex;
+  justify-content:center;
+}
+.display{
+  margin-top:28px;
+  border:2px solid black;
+  border-radius: 10px;
+  height:590px;
+  width:635px;
+  background-color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.square{
+  height:10px;
+  width:10px;
+  border:1px solid black;
+}
+.small{
+  height:5px;
+  width:5px;
+}
+.medium{
+  height:10px;
+  width:10px;
+}
+.large{
+  height:15px;
+  width:15px;
+}
+.black{
+  background-color:black;
+}
+.psych{
+  /*random number generator picks a random number, each associated with
+      a differnt psychedelic color, random generator might be in javascript
+      and color1 color2 color3 etc class selectors will be in css, each with
+      a different psychedelic background-color*/
+}
 
 /*classes that change size*/
 
