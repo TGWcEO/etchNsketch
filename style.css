@@ -10,24 +10,24 @@
   align-items:center;
 }
 .display{
+  padding:0px;
   margin-top:35px;
   border:2px solid black;
-  border-radius: 10px;
-  height:500px;
+  border-radius:10px;
   width:920px;
+  height:500px;
   background-color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(var(--columns),1fr);
+  grid-template-rows:repeat(var(--rows),1fr);
 }
 .controlBox{
   margin-top:25px;
-  height:112px;
   width:990px;
+  height:112px;
   display:flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
+  align-items:center;
 }
 button{
   border-radius:5px;
@@ -39,10 +39,19 @@ button{
 .darker{
   background-color:#848884;
 }
+.erase{
+  font-size:30px;
+  color:#FFFAFA;
+  background-color:#848884;
+  font-weight:200;
+/*  vertical-align:top;
+  transform:rotate(7deg);
+  -webkit-transform:rotate(90deg);  **gonna leave this button horizontal  */
+}
 .square{
-  height:50px;
-  width:50px;
-  border:1px solid black;
+/*  border:1px solid black;  **decided on no border for the squares  */
+  margin:0px;
+  padding:0px;
 }
 .knob{
   background-color:black;
