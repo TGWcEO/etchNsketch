@@ -6,45 +6,49 @@ let defaultColor=1,
     changeId='',
     num=0;
 const master=document.querySelector("#masterBox");
-master.classList.add('master');
-
-/*display screen*/
-const display=document.createElement("div");
-display.classList.add("display");
-master.appendChild(display);
-
-/*contorl box*/
-const controls=document.createElement("div");
-controls.classList.add("controlBox");
-master.appendChild(controls);
+const display=document.querySelector("#display");
+const controls=document.querySelector("#controls");
 
 /*squares*/
-///////create fuction that makes the squares get progressivly darker until
-/////////////////eventually being completely black (10 shades to black)
 const createSquare=index=>{
   const square=document.createElement('div');
+  let dark=0;
   square.classList.add('square');
   changeId=`square${num}`;
   square.setAttribute('id',changeId);
   display.appendChild(square);
   square.addEventListener('mouseover',()=>{
-    square.classList.remove('black','psych1','psych2','psych3','psych4','psych5');
+    square.classList.remove('c1','c2','c3','c4','c5','p1','p2','p3','p4','p5');
     if(defaultColor==1){
-      square.classList.add('black');
+      if(dark==0){
+        square.classList.add('c1');
+        dark=1;
+      }else if(dark==1){
+        square.classList.add('c2');
+        dark=2;
+      }else if(dark==2){
+        square.classList.add('c3');
+        dark=3;
+      }else if(dark==3){
+        square.classList.add('c4');
+        dark=4;
+      }else if(dark==4){
+        square.classList.add('c5');
+      }
     }else if(defaultColor==2){
-      square.classList.add('psych1');
+      square.classList.add('p1');
       defaultColor=3;
     }else if(defaultColor==3){
-      square.classList.add('psych2');
+      square.classList.add('p2');
       defaultColor=4;
     }else if(defaultColor==4){
-      square.classList.add('psych3');
+      square.classList.add('p3');
       defaultColor=5;
     }else if(defaultColor==5){
-      square.classList.add('psych4');
+      square.classList.add('p4');
       defaultColor=6;
     }else if(defaultColor==6){
-      square.classList.add('psych5');
+      square.classList.add('p5');
       defaultColor=2;
     }
   });
@@ -64,54 +68,29 @@ const createGrid=()=>{
   createSquares(columns*rows);
 }
 createGrid();
- 
-/*knobs*/
-const knob1=document.createElement("div");
-const knob2=document.createElement("div");
-knob1.classList.add("knob");
-knob1.classList.add("left");
-knob2.classList.add("knob");
-knob2.classList.add("right");
-controls.appendChild(knob1);
 
 /*size Buttons*/
-const small=document.createElement('button');
-const medium=document.createElement('button');
-const large=document.createElement('button');
-small.textContent="small";
-medium.textContent="medium";
-large.textContent="large";
-small.classList.add('sizeButton');
-medium.classList.add('sizeButton');
-large.classList.add('sizeButton');
+const small=document.querySelector('#small');
+const medium=document.querySelector('#medium');
+const large=document.querySelector('#large');
 large.classList.add('darker');
 small.addEventListener('click',toSmall);
 medium.addEventListener('click',toMedium);
 large.addEventListener('click',toLarge);
-controls.appendChild(small);
-controls.appendChild(medium);
-controls.appendChild(large);
 
 /*screen eraser*/
-const erase=document.createElement("button");
-erase.textContent="ERASE";
-erase.classList.add('erase');
+const erase=document.querySelector("#erase");
 erase.addEventListener('click',()=>{
   const sq=document.getElementsByClassName('square');
   for(let item of sq){
-  item.classList.remove('black','psych1','psych2','psych3','psych4','psych5');
+  item.classList.remove('c1','c2','c3','c4','c5','p1','p2','p3','p4','p5');
   }
 });
-controls.appendChild(erase);
 
 /*color Buttons*/
-const black=document.createElement('button');
-const psych=document.createElement('button');
-black.textContent="black";
-psych.textContent="psychedelic";
-black.classList.add('colorButton');
+const black=document.querySelector('#black');
+const psych=document.querySelector('#psych');
 black.classList.add('darker');
-psych.classList.add('colorButton');
 black.addEventListener('click',toBlack);
 psych.addEventListener('click',toPsych);
 function toBlack(){
@@ -123,11 +102,6 @@ function toBlack(){
   psych.classList.add('darker')
   defaultColor=2;
 }
-controls.appendChild(black);
-controls.appendChild(psych);
-
-/*right knob placement*/
-controls.appendChild(knob2);
 
 /*square size changers*/
 function removeSizeClass(){
@@ -135,6 +109,8 @@ function removeSizeClass(){
   medium.classList.remove('darker');
   large.classList.remove('darker');
 }function toSmall(){
+//columns=335;
+//rows=210;
   columns=145;
   rows=70;
   removeSizeClass();

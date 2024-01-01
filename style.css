@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items:center;
 }
-.display{
+#display{
   padding:0px;
   margin-top:35px;
   border:2px solid black;
@@ -21,13 +21,13 @@
   grid-template-columns:repeat(var(--columns),1fr);
   grid-template-rows:repeat(var(--rows),1fr);
 }
-.controlBox{
+#controls{
   margin-top:25px;
   width:990px;
   height:112px;
   display:flex;
-  justify-content:center;
   align-items:center;
+  gap:3px;
 }
 button{
   border-radius:5px;
@@ -39,17 +39,21 @@ button{
 .darker{
   background-color:#848884;
 }
-.erase{
+#erase{
   font-size:30px;
   color:#FFFAFA;
   background-color:#848884;
   font-weight:200;
-/*  vertical-align:top;
-  transform:rotate(7deg);
-  -webkit-transform:rotate(90deg);  **gonna leave this button horizontal  */
+}
+#erase:hover{
+  transform:scale(1.5);
+  color:red;
+  border:3px solid black;
+  font-weight:900;
+  background-color:white;
+  margin:0px 3.4px;
 }
 .square{
-/*  border:1px solid black;  **decided on no border for the squares  */
   margin:0px;
   padding:0px;
 }
@@ -57,17 +61,36 @@ button{
   background-color:black;
   height:120px;
   width:120px;
-  border-radius:60px;
+  border-radius:50%;
+  display:flex;
 }
 .left{
-  margin-right:50px;
+  margin:0px 15px 0px 55px;
+  align-items:center;
+  flex-direction:column;
+}
+.ltRect{
+  height:50px;
+  width:7px;
+  margin-top:0.2px;
 }
 .right{
-  margin-left:50px;
+  margin:0px 55px 0px 15px;
+  align-items:center;
+}
+.rtRect{
+  height:7px;
+  width:50px;
+  margin-left:0.45px;
+}
+.rect{
+  background-color:white;
+  border-radius:1.8px;
 }
 .small{
   height:2px;
   width:2px;
+  justify-content:flex-start;
 }
 .medium{
   height:5px;
@@ -77,25 +100,28 @@ button{
   height:10px;
   width:10px;
 }
-.black{
-  background-color:black;
+.c1{
+  background-color:#F5F5F5;
+}.c2{
+  background-color:#E0E0E0;
+}.c3{
+  background-color:#9E9E9E;
+}.c4{
+  background-color:#616161;
+}.c5{
+  background-color:#212121;
 }
-.psych1{
+.p1{
   background-color:#D0B1FC;
-}.psych2{
+}.p2{
   background-color:#F7C5DD;
-}.psych3{
+}.p3{
   background-color:#FAEDC7;
-}.psych4{
+}.p4{
   background-color:#98E2F7;
-}.psych5{
+}.p5{
   background-color:#CAEEBE;
 }
-
-/*flexbox to organize the squares*/
-
-
-
 
 
 
